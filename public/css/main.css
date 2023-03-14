@@ -1,0 +1,15 @@
+body{
+    display:block !important;
+    padding:0 !important;
+    margin: 0 !important;
+    border: 0 !important;
+    height: 100% !important;
+}
+#app{
+    padding:0 !important;
+    margin: 0 !important;
+    border: 0 !important;
+    text-align:left !important;
+    max-width: 100% !important;
+    height: 100% !important;
+}
