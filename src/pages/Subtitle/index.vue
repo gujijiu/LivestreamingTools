@@ -4,10 +4,10 @@ import { useSpeechRecognition,onKeyStroke } from '@vueuse/core'
 
 const lang = ref('zh-CN')
 let sayText = ref('')
-let startNum = 0
-const oneLine = 41
-const twoLine = 2 * oneLine
-let listeningType = true
+let startNum:number = 0
+const oneLine:number = 41
+const twoLine:number = 2 * oneLine
+let listeningType:boolean = true
 const speech = useSpeechRecognition({
   lang,//语言
   continuous: true,//是否连续
@@ -16,7 +16,7 @@ const speech = useSpeechRecognition({
 
 //获取用户语音,启动事件
 // start()
-function myStart() {
+function myStart():void {
   if(speech.isSupported){
     speech.start()
     listeningType = true
@@ -25,7 +25,7 @@ function myStart() {
 
 //停止获取用户语音 
 // stop()
-function myStop() {
+function myStop():void  {
   speech.stop()
   listeningType = false
   myClear()
@@ -33,12 +33,12 @@ function myStop() {
 
 //暂停获取用户语音
 // pause()
-function myPause() {
+function myPause():void  {
   myStop()
 }
 
 //清空
-function myClear() {
+function myClear():void  {
   sayText.value = ''
   startNum = 0
 }
