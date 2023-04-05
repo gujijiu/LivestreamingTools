@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue'
 import { useSpeechRecognition,onKeyStroke } from '@vueuse/core'
+import { ElMessage } from 'element-plus'
 
 const lang = ref('zh-CN')
 let sayText = ref('')
@@ -81,16 +82,28 @@ watch(speech.result, result => {
 onKeyStroke(['s','S'], (e) => {
   console.log(e,'s')
   myStart()
+  ElMessage({
+    message: '开始语音识别',
+    type: 'success'
+  })
 }, { eventName: 'keyup' })
 //设置停止快捷键 监听d键盘事件
 onKeyStroke(['d','D'], (e) => {
   console.log(e,'d')
   myStop()
+  ElMessage({
+    message: '停止语音识别',
+    type: 'error'
+  })
 }, { eventName: 'keyup' })
 //设置暂停快捷键 监听p键盘事件
 onKeyStroke(['p','P'], (e) => {
   console.log(e,'p')
   myPause()
+  ElMessage({
+    message: '暂停语音识别',
+    type: 'warning'
+  })
 }, { eventName: 'keyup' })
 
 
